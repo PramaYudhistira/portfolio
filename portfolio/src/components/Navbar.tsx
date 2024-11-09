@@ -30,21 +30,22 @@ const Navbar: React.FC = () => {
     return (
         <div
         ref={navbarRef}
-        className={`w-4/5 mx-auto backdrop-grayscale-0 
-            text-white p-4 transition-transform rounded-full ${
+        className={`w-full mx-auto backdrop-blur-sm ease-in-out
+            text-white p-4 transition-transform  ${
             isSticky ? "fixed top-0 left-1/2 transform -translate-x-1/2" : 
             "absolute left-1/2 transform -translate-x-1/2" }
         `}
         style={{
-            backgroundColor: "#333", // Darker grey color
-            top: isSticky ? 0 : "75vh", // Start at 75% of the viewport height
+            //remove backgroundColor later after figuring out education card
+            backgroundColor: "#1a1a1a",
+            top: isSticky ? 0 : "75vh",
         }}
         >
         <nav className="flex justify-around">
             <a href="#" onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
-            }} className="hover:bg-indigo-500 transition
+            }} className="hover:bg-neutral-400 transition
             ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
             rounded-full px-4 py-2 border border-transparent">Home</a>
         </nav>
