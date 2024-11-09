@@ -8,14 +8,15 @@ export default function Home() {
     <div className="relative min-h-screen">
       <BackgroundVideo />
       <div className="relative z-10">
-        <div className="flex flex-col items-center justify-between h-full"> 
-            <WelcomeCard />
+        <div className="flex flex-col items-center"> 
+          <WelcomeCard />
         </div>
         <Navbar />
-        {/* <div className="flex flex-col items-center justify-center mt-4">
-          <EducationCard />
-        </div> */}
-        <div style={{ height: '200vh' }}></div> {/* Added div to enable scrolling */}
+
+        <EducationCard />
+        <div className="w-64 h-64" style={{
+          marginTop: "500rem"
+        }}></div>
       </div>
     </div>
   );

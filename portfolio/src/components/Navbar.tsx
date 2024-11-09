@@ -32,12 +32,12 @@ const Navbar: React.FC = () => {
         ref={navbarRef}
         className={`w-full mx-auto backdrop-blur-sm ease-in-out
             text-white p-4 transition-transform  ${
-            isSticky ? "fixed top-0 left-1/2 transform -translate-x-1/2" : 
-            "absolute left-1/2 transform -translate-x-1/2" }
+            isSticky ? "fixed top-0 left-1/2 transform -translate-x-1/2 z-20" : 
+            "absolute left-1/2 transform -translate-x-1/2 z-20" }
         `}
         style={{
             //remove backgroundColor later after figuring out education card
-            backgroundColor: "#1a1a1a",
+            // backgroundColor: "#1a1a1a",
             top: isSticky ? 0 : "75vh",
         }}
         >
@@ -48,12 +48,15 @@ const Navbar: React.FC = () => {
             }} className="hover:bg-slate-800 transition font-bold
             ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
             rounded-full px-4 py-2 border border-transparent">Home</a>
+
             <a href="#" className="hover:bg-slate-800 transition font-bold
             ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
-            rounded-full px-4 py-2 border border-transparent">Education</a>
+            rounded-full px-4 py-2 border border-transparent">About</a>
+
             <a href="#" className="hover:bg-slate-800 transition font-bold
             ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
             rounded-full px-4 py-2 border border-transparent">Experience</a>
+
             <a href="#" className="hover:bg-slate-800 transition font-bold
             ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
             rounded-full px-4 py-2 border border-transparent">Projects</a>         
