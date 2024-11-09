@@ -10,7 +10,7 @@ const BackgroundVideo: React.FC = () => {
         playsInline
         className="min-w-full min-h-full object-cover"
       >
-        <source src="/videos/background.mp4" type="video/mp4" />
+        <source src="/videos/higher_res.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute bottom-0 left-0 w-full 

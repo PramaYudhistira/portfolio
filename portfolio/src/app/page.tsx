@@ -14,6 +14,9 @@ export default function Home() {
         <Navbar />
 
         <EducationCard />
+
+        {/*the div below is just a placeholder to show off 
+        the navbar */}
         <div className="w-64 h-64" style={{
           marginTop: "500rem"
         }}></div>
