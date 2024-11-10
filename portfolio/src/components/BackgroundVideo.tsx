@@ -8,7 +8,10 @@ const BackgroundVideo: React.FC = () => {
         loop
         muted
         playsInline
-        className="min-w-full min-h-full object-cover"
+        className="w-full h-full object-cover"
+        style={{
+          objectFit: 'cover'
+        }}
       >
         <source src="/videos/higher_res.mp4" type="video/mp4" />
         Your browser does not support the video tag.

@@ -31,9 +31,8 @@ const Navbar: React.FC = () => {
         <div
         ref={navbarRef}
         className={`w-full mx-auto backdrop-blur-sm ease-in-out
-            text-white p-4 transition-transform  ${
-            isSticky ? "fixed top-0 left-1/2 transform -translate-x-1/2 z-20" : 
-            "absolute left-1/2 transform -translate-x-1/2 z-20" }
+            text-white p-4 transition-transform  left-1/2 -translate-x-1/2 z-20 
+            transform ${isSticky ? "fixed top-0" : "absolute" }
         `}
         style={{
             //remove backgroundColor later after figuring out education card
@@ -41,7 +40,7 @@ const Navbar: React.FC = () => {
             top: isSticky ? 0 : "75vh",
         }}
         >
-        <nav className="flex justify-around">
+        <nav className="flex justify-start space-x-4">
             <a href="#" onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
