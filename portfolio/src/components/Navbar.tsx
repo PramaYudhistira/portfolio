@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
         //set the distanceFromTop variable 
         if (navbarRef.current) {
             const rect = navbarRef.current.getBoundingClientRect();
-            setDistanceFromTop(rect.top);
+            setDistanceFromTop(rect.top + window.scrollY);
         }
 
     }, []);
@@ -58,23 +58,25 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
             }} className="hover:bg-slate-800 transition font-bold
-            ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
-            rounded-full px-4 py-2 border border-transparent">Home</a>
+            ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105
+            rounded-full px-2 py-2 border border-transparent">Home</a>
 
             <a href="#" onClick={(e) => {
                 e.preventDefault();
-                window.scrollTo({top: navbarRef.current?.offsetTop, behavior: "smooth"});
+                if (distanceFromTop !== null) {
+                    window.scrollTo({top: distanceFromTop, behavior: "smooth"});
+                }
             }} className="hover:bg-slate-800 transition font-bold
-            ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
-            rounded-full px-4 py-2 border border-transparent">About</a>
+            ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105
+            rounded-full px-2 py-2 border border-transparent">About</a>
 
             <a href="#" className="hover:bg-slate-800 transition font-bold
-            ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
-            rounded-full px-4 py-2 border border-transparent">Experience</a>
+            ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
+            rounded-full px-2 py-2 border border-transparent">Experience</a>
 
             <a href="#" className="hover:bg-slate-800 transition font-bold
-            ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
-            rounded-full px-4 py-2 border border-transparent">Projects</a>         
+            ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
+            rounded-full px-2 py-2 border border-transparent">Projects</a>         
         </nav>
         </div>
     );
