@@ -9,8 +9,6 @@ const Navbar: React.FC = () => {
     const [distanceFromTop, setDistanceFromTop] = useState<number | null>(null);
     
     const handleScroll = () => {
-        console.log("window.scrollY:", window.scrollY);
-        console.log("distanceFromTop:", distanceFromTop);
         setIsSticky(window.scrollY >= distanceFromTop!);
     };
 
@@ -24,28 +22,38 @@ const Navbar: React.FC = () => {
 
     }, []);
 
+    //when screen resolution changes, update distanceFromTop
+    const updateDistanceFromTop = () => {
+        if (navbarRef.current) {
+            const rect = navbarRef.current.getBoundingClientRect();
+            setDistanceFromTop(rect.top + window.scrollY);
+        }
+    }
+
     useEffect(() => {
         console.log("distanceFromTop updated:", distanceFromTop);
 
         window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", updateDistanceFromTop);
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", updateDistanceFromTop);
         };
     }, [distanceFromTop]);
 
     return (
         <div
         ref={navbarRef}
-        className={`w-full mx-auto backdrop-blur-sm ease-in-out
-            text-white p-4 transition-transform  left-1/2 -translate-x-1/2 z-50 
-            transform ${isSticky ? "fixed top-0 z-20" : "relative" }
+        className={`w-full backdrop-blur-sm ease-in-out
+            text-white p-4 transition-transform  z-50 
+            transform bg-red-500 ${isSticky ? "fixed top-0 z-20" : "relative" }
         `}
         style={{
             //remove backgroundColor later after figuring out education card
             // backgroundColor: "#1a1a1a",
         }}
         >
-        <nav className="flex justify-start space-x-4">
+        <nav className="flex justify-start w-full">
             <a href="#" onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
