@@ -1,15 +1,16 @@
 import Navbar from "../components/Navbar";
-import EducationCard from "@/components/EducationCard";
 import HomeSection from "@/components/HomeSection";
+import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
   return (
     <div id="main-page">
       <HomeSection />
       <Navbar />
+      <AboutSection />
       <div style={{
         height: "200vh",
-      }}><h1>hot men kissing</h1></div>
+      }}></div>
     </div>
   );
-  }
+};

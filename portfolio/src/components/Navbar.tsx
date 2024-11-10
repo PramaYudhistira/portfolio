@@ -47,19 +47,19 @@ const Navbar: React.FC = () => {
         ref={navbarRef}
         //note: removed backdrop-blur-sm from classlist, may need to add back
         className={`w-full backdrop-blur-sm ease-in-out
-            text-white p-4 transition-transform  z-50 
+            text-white p-4 transition-transform z-50 
             transform ${isSticky ? "fixed top-0 z-20" : "relative" }
         `}
         style={{
         }}
         >
-        <nav className="flex justify-start w-full">
+        <nav className="flex justify-around w-full">
             <a href="#" onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
             }} className="hover:bg-slate-800 transition font-bold
             ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105
-            rounded-full px-2 py-2 border border-transparent">Home</a>
+             px-2 py-2 border border-transparent">Home</a>
 
             <a href="#" onClick={(e) => {
                 e.preventDefault();

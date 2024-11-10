@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 
 const HomeSection: React.FC = () => {
@@ -22,13 +22,16 @@ const HomeSection: React.FC = () => {
                 <div className="self-start text-left max-w-lg pl-4 md:mx-auto pr-5rem">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 break-words">Prama</h2>
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 break-words">Yudhistira</h2>
-                    <p className="text-lg text-left mb-4">Computer Scientist</p>
+                    <p className="text-2xl text-left mb-4">Computer Scientist</p>
                     <div className="flex space-x-4 ">
                         <a href="https://github.com/PramaYudhistira" target="_blank" rel="noopener noreferrer">
-                            <FaGithub className="text-4xl"/>
+                            <FaGithub className="text-3xl"/>
                         </a>
                         <a href="https://linkedin.com/in/pramayudhistira" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin className="text-4xl"/>
+                            <FaLinkedin className="text-3xl"/>
+                        </a>
+                        <a href="https://linkedin.com/in/pramayudhistira" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram className="text-3xl"/>
                         </a>
                     </div>
                 </div>
