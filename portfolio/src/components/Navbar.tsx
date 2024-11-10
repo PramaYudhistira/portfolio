@@ -5,39 +5,44 @@ import React, { useEffect, useRef, useState } from "react";
 const Navbar: React.FC = () => {
     const [isSticky, setIsSticky] = useState(false);
     const navbarRef = useRef<HTMLDivElement>(null);
-    const initialNavbarOffset = useRef<number | null>(null);
+    //track distance from top of viewport
+    const [distanceFromTop, setDistanceFromTop] = useState<number | null>(null);
     
     const handleScroll = () => {
-        if (initialNavbarOffset.current !== null) {
-            if (window.scrollY > initialNavbarOffset.current) {
-                setIsSticky(true);
-            } else if (window.scrollY <= initialNavbarOffset.current) {
-                setIsSticky(false);
-            }
-        }
+        console.log("window.scrollY:", window.scrollY);
+        console.log("distanceFromTop:", distanceFromTop);
+        setIsSticky(window.scrollY >= distanceFromTop!);
     };
 
+    //when component mounts, set distanceFromTop variable from null to actual
     useEffect(() => {
+        //set the distanceFromTop variable 
         if (navbarRef.current) {
-            initialNavbarOffset.current = navbarRef.current.offsetTop;
+            const rect = navbarRef.current.getBoundingClientRect();
+            setDistanceFromTop(rect.top);
         }
+
+    }, []);
+
+    useEffect(() => {
+        console.log("distanceFromTop updated:", distanceFromTop);
+
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    }, [distanceFromTop]);
 
     return (
         <div
         ref={navbarRef}
         className={`w-full mx-auto backdrop-blur-sm ease-in-out
-            text-white p-4 transition-transform  left-1/2 -translate-x-1/2 z-20 
-            transform ${isSticky ? "fixed top-0" : "absolute" }
+            text-white p-4 transition-transform  left-1/2 -translate-x-1/2 z-50 
+            transform ${isSticky ? "fixed top-0 z-20" : "relative" }
         `}
         style={{
             //remove backgroundColor later after figuring out education card
             // backgroundColor: "#1a1a1a",
-            top: isSticky ? 0 : "75vh",
         }}
         >
         <nav className="flex justify-start space-x-4">
