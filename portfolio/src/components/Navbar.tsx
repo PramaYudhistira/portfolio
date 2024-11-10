@@ -49,7 +49,10 @@ const Navbar: React.FC = () => {
             ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
             rounded-full px-4 py-2 border border-transparent">Home</a>
 
-            <a href="#" className="hover:bg-slate-800 transition font-bold
+            <a href="#" onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({top: navbarRef.current?.offsetTop, behavior: "smooth"});
+            }} className="hover:bg-slate-800 transition font-bold
             ease-in-out hover:-translate-y-1 hover:translate-y-1 hover:scale-110 
             rounded-full px-4 py-2 border border-transparent">About</a>
 
