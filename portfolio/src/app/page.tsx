@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
       <div style={{
         height: "200vh",
-      }}></div>
+      }}><h1>testing navbar blur</h1></div>
     </div>
   );
   }

@@ -42,15 +42,15 @@ const Navbar: React.FC = () => {
     }, [distanceFromTop]);
 
     return (
+        <>
         <div
         ref={navbarRef}
+        //note: removed backdrop-blur-sm from classlist, may need to add back
         className={`w-full backdrop-blur-sm ease-in-out
             text-white p-4 transition-transform  z-50 
-            transform bg-red-500 ${isSticky ? "fixed top-0 z-20" : "relative" }
+            transform ${isSticky ? "fixed top-0 z-20" : "relative" }
         `}
         style={{
-            //remove backgroundColor later after figuring out education card
-            // backgroundColor: "#1a1a1a",
         }}
         >
         <nav className="flex justify-start w-full">
@@ -79,6 +79,12 @@ const Navbar: React.FC = () => {
             rounded-full px-2 py-2 border border-transparent">Projects</a>         
         </nav>
         </div>
+        {/**this is to add a placeholder so elements below dont depend on navbar
+         * top element when it is sticky since being sticky essentially removes
+         * the element from the document flow
+         */}
+        {isSticky && <div style={{ height: navbarRef.current?.offsetHeight }} />}
+        </>
     );
 };
 
