@@ -3,16 +3,6 @@ import React, { useEffect } from "react";
 
 
 const AboutSection: React.FC = () => {
-
-
-    useEffect(() =>{
-        const observer = new IntersectionObserver(
-            (entries) => {
-
-            }
-        );
-    });
-
     return (
         <>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-4 pt-4">
