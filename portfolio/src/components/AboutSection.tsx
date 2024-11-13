@@ -21,8 +21,7 @@ const AboutSection: React.FC = () => {
             </div>
             <div className="col-span-1">
                 <p className="pl-5 pr-5">I'm a computer science major at Georgia Tech. I don't label 
-                    myself as a  
-                    "full-stack developer", a "graphics engine programmer", 
+                    myself as a "full-stack developer", a "graphics engine programmer", 
                     or a "networking engineer". I believe that the skills I obtained at Georgia Tech 
                     have given me the ability to adapt to anything technical. And I believe that the computer 
                     science degree I'm pursuing helps me think as a <strong><em>computer scientist</em></strong>. 
