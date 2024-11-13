@@ -1,13 +1,13 @@
 import Navbar from "../components/Navbar";
 import HomeSection from "@/components/HomeSection";
 import AboutSection from "@/components/AboutSection";
+import HomeAboutWrapper from "@/components/HomeAboutWrapper";
+
 
 export default function Home() {
   return (
     <div id="main-page">
-      <HomeSection />
-      <Navbar />
-      <AboutSection />
+      <HomeAboutWrapper />
       <div style={{
         height: "200vh",
       }}></div>

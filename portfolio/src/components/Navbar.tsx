@@ -31,8 +31,6 @@ const Navbar: React.FC = () => {
     }
 
     useEffect(() => {
-        console.log("distanceFromTop updated:", distanceFromTop);
-
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", updateDistanceFromTop);
         return () => {
