@@ -15,12 +15,12 @@ const AboutSection: React.FC = () => {
 
     return (
         <>
-        <div className="grid grid-cols-[1fr_3fr] gap-4 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-4 pt-4">
             <div className="col-span-1">
-                <h1 className="font-bold text-2xl pl-5">About Me </h1>
+                <h1 className="font-bold text-2xl pl-5 pr-5">About Me </h1>
             </div>
             <div className="col-span-1">
-                <p >I'm a computer science major at Georgia Tech. I don't label 
+                <p className="pl-5 pr-5">I'm a computer science major at Georgia Tech. I don't label 
                     myself as a  
                     "full-stack developer", a "graphics engine programmer", 
                     or a "networking engineer". I believe that the skills I obtained at Georgia Tech 
