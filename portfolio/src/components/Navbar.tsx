@@ -49,6 +49,9 @@ const Navbar: React.FC = () => {
             transform ${isSticky ? "fixed top-0 z-20" : "relative" }
         `}
         style={{
+            // backgroundColor: "var(--background)",
+            borderBottom: "1px solid #333",
+            borderTop: "1px solid #333"
         }}
         >
         <nav className="flex justify-around w-full">
