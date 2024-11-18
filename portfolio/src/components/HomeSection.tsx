@@ -37,18 +37,18 @@ const HomeSection: React.FC<HomeSectionProps> = ({ nameRef }) => {
             </video>
             <div className="absolute inset-0 flex flex-col md:items-center justify-center z-10">
                 <div className="self-start text-left max-w-lg pl-4 md:mx-auto pr-5rem">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 break-words">Prama</h2>
-                    <motion.h2 ref={nameRef} className="text-4xl md:text-5xl font-bold mb-4 break-words">Yudhistira</motion.h2>
-                    <p className="text-2xl text-left mb-4">Computer Scientist</p>
+                    <h2 className="text-4xl md:text-5xl lg:text-8xl font-bold mb-4 break-words">Prama</h2>
+                    <motion.h2 ref={nameRef} className="text-4xl md:text-5xl lg:text-8xl font-bold mb-4 break-words">Yudhistira</motion.h2>
+                    <p className="text-2xl lg:text-4xl text-left mb-4">Computer Scientist</p>
                     <div className="flex space-x-4 ">
                         <a href="https://github.com/PramaYudhistira" target="_blank" rel="noopener noreferrer">
-                            <FaGithub className="text-3xl"/>
+                            <FaGithub className="text-3xl lg:text-5xl"/>
                         </a>
                         <a href="https://linkedin.com/in/pramayudhistira" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin className="text-3xl"/>
+                            <FaLinkedin className="text-3xl lg:text-5xl"/>
                         </a>
                         <a href="https://linkedin.com/in/pramayudhistira" target="_blank" rel="noopener noreferrer">
-                            <FaInstagram className="text-3xl"/>
+                            <FaInstagram className="text-3xl lg:text-5xl"/>
                         </a>
                     </div>
                 </div>

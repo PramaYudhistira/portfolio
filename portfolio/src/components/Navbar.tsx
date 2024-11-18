@@ -59,8 +59,8 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
             }} className="hover:bg-slate-800 transition font-bold
-            ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105
-             px-2 py-2 border border-transparent">Home</a>
+            ease-in-out text-sm md:text-base lg:text-xl hover:-translate-y-1 hover:translate-y-1 hover:scale-105
+            rounded-full px-2 py-2 border border-transparent">Home</a>
 
             <a href="#" onClick={(e) => {
                 e.preventDefault();
@@ -68,15 +68,15 @@ const Navbar: React.FC = () => {
                     window.scrollTo({top: distanceFromTop, behavior: "smooth"});
                 }
             }} className="hover:bg-slate-800 transition font-bold
-            ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105
+            ease-in-out text-sm md:text-base lg:text-xl hover:-translate-y-1 hover:translate-y-1 hover:scale-105
             rounded-full px-2 py-2 border border-transparent">About</a>
 
             <a href="#" className="hover:bg-slate-800 transition font-bold
-            ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
+            ease-in-out text-sm md:text-base lg:text-xl hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
             rounded-full px-2 py-2 border border-transparent">Experience</a>
 
             <a href="#" className="hover:bg-slate-800 transition font-bold
-            ease-in-out text-sm md:text-base hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
+            ease-in-out text-sm md:text-base lg:text-xl hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
             rounded-full px-2 py-2 border border-transparent">Projects</a>         
         </nav>
         </div>

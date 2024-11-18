@@ -6,11 +6,11 @@ import AboutSection from "./AboutSection";
 import Navbar from "./Navbar";
 
 
-//TODO: Implement IntersectionObserver so AboutSection fades in 
-// when the name in HomeSection is not visible
 const HomeAboutWrapper: React.FC = () => {
     const nameRef = useRef<HTMLDivElement>(null);
 
+    //TODO: perhaps instead of using the reference, use the boolean value 
+    //      could fix the problem of rendering automatically then fading out
     return (
         <>
         <HomeSection nameRef={nameRef}/>
