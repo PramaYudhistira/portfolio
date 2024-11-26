@@ -29,9 +29,10 @@ const OrganizationsCard: React.FC<OrganizationsCardProps> = ( {
      */
     return(
         //the outer "slots" to structurethe physical cards
-        <div className="w-1/2 md:w-1/4 lg:1/4">
+        <div className="w-1/2 md:w-1/4">
             {/** the actual definitions for the cards themselves */}
-            <div className="relative rounded-lg border-gray-700 bg-gray-900 overflow-hidden mr-2 mb-2 h-23rem md:h-96">
+            <div className="relative rounded-lg border-gray-700 bg-gray-900 overflow-hidden mr-2 mb-2 h-23rem md:h-96 transition
+            duration-300 hover:bg-gray-800">
                 <div className={`h-1/2 ${bgColor} flex items-center justify-center`}>
                     <img className="h-full object-cover transition-transform duration-500 
                     group-hover:scale-125" src={imageSrc}/>

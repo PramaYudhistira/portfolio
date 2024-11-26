@@ -76,6 +76,12 @@ const AboutSection: React.FC<AboutSectionProps> = ( { nameRef } ) => {
                     description="I worked as a tech support agent for wreck techs."
                     bgColor="bg-oit"
                 />
+                <OrganizationsCard
+                    imageSrc="vip_logo.jpg"
+                    title="VIP"
+                    description="Helped make a Game in Unity, and currently in the AI-Based discovery and innovation team"
+                    bgColor="bg-white"
+                />
 
                 
             </div>

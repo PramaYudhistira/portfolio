@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import HomeSection from "./HomeSection";
 import AboutSection from "./AboutSection";
 import Navbar from "./Navbar";
+import TimelineMain from "./Timeline/TimelineMain";
 
 
 const HomeAboutWrapper: React.FC = () => {
@@ -16,6 +17,7 @@ const HomeAboutWrapper: React.FC = () => {
         <HomeSection nameRef={nameRef}/>
         <Navbar />
         <AboutSection nameRef={nameRef}/>
+        <TimelineMain />
         </>
     );
 };
