@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import TimelineItem from "./TimelineItem";
 import { motion, useInView, useAnimation } from "framer-motion";
+import TimelineLinesMobile from "./TimelineLinesMobile";
 
 
 const timeLineData = [
@@ -34,27 +35,10 @@ const timeLineData = [
 const TimelineMain: React.FC = () => {
     const lineRef = useRef<HTMLDivElement>(null);
     const isLineInView = useInView(lineRef);
-    const controls = useAnimation();
 
-    const handleScroll = () => {
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        const scrollPosition = scrollY / (documentHeight - windowHeight);
-    
-        controls.start({
-          opacity: scrollPosition > 0.1 ? 1 : 0,
-        });
-      };
-    
-      React.useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        handleScroll(); // Check visibility on initial render
-    
-        return () => {
-          window.removeEventListener("scroll", handleScroll);
-        };
-      }, [controls]);
+    useEffect(() => {
+        console.log(isLineInView);
+    }, [isLineInView]);
     
 
     return (
@@ -75,14 +59,7 @@ const TimelineMain: React.FC = () => {
                         logoSrc={item.logoSrc}
                         />
                         {index < timeLineData.length - 1 && (
-                            <motion.div className="md:hidden flex space-x-40"
-                            initial={{ opacity: 0 }}
-                            animate={controls}
-                            transition={{ duration: 0.5 }}
-                            >
-                                <div className="md:hidden w-0.5 h-16 bg-gray-300 opacity-30"></div>
-                                <div className="md:hidden w-0.5 h-16 bg-gray-300 opacity-30"></div>
-                            </motion.div>
+                            <TimelineLinesMobile />
                         )}
                     </React.Fragment>
                 ))}
