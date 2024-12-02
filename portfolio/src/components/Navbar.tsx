@@ -27,11 +27,11 @@ const Navbar: React.FC = () => {
     const updateDistanceFromTop = () => {
         if (navbarRef.current) {
             const rect = navbarRef.current.getBoundingClientRect();
-            if (!isSticky) {
+            if (!placeholderRef.current) {
                 setDistanceFromTop(rect.top + window.scrollY);
                 setIsSticky(window.scrollY >= distanceFromTop!);
             } else {
-                setDistanceFromTop(placeholderRef.current!.getBoundingClientRect().top + window.scrollY);
+                setDistanceFromTop(placeholderRef.current.getBoundingClientRect().top + window.scrollY);
                 setIsSticky(window.scrollY >= distanceFromTop!);
             }
         }
