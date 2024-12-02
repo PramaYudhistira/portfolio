@@ -7,6 +7,7 @@ const Navbar: React.FC = () => {
     const navbarRef = useRef<HTMLDivElement>(null);
     //track distance from top of viewport
     const [distanceFromTop, setDistanceFromTop] = useState<number | null>(null);
+    const placeholderRef = useRef<HTMLDivElement>(null);
     
     const handleScroll = () => {
         setIsSticky(window.scrollY >= distanceFromTop!);
@@ -26,9 +27,18 @@ const Navbar: React.FC = () => {
     const updateDistanceFromTop = () => {
         if (navbarRef.current) {
             const rect = navbarRef.current.getBoundingClientRect();
-            setDistanceFromTop(rect.top + window.scrollY);
+            if (!isSticky) {
+                setDistanceFromTop(rect.top + window.scrollY);
+                setIsSticky(window.scrollY >= distanceFromTop!);
+            } else {
+                setDistanceFromTop(placeholderRef.current!.getBoundingClientRect().top + window.scrollY);
+                setIsSticky(window.scrollY >= distanceFromTop!);
+            }
         }
     }
+    //if not sticky and then we resize, we first check if the window.scrollY >= the placeholder distance from top
+    //if its greater than, setIsSticky remains truee
+    //and when we scroll, we want to use the placeholder's top,  so we update the distanceFromTop variable to placeholder's top ONLY since we are beneath the placeholder
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -84,7 +94,7 @@ const Navbar: React.FC = () => {
          * top element when it is sticky since being sticky essentially removes
          * the element from the document flow
          */}
-        {isSticky && <div style={{ height: navbarRef.current?.offsetHeight }} />}
+        {isSticky && <div ref={placeholderRef} style={{ height: navbarRef.current?.offsetHeight }} />}
         </>
     );
 };

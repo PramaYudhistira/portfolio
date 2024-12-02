@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TimelineItem from "./TimelineItem";
 import { motion, useInView, useAnimation } from "framer-motion";
 import TimelineLinesMobile from "./TimelineLinesMobile";
@@ -33,21 +33,20 @@ const timeLineData = [
 
 
 const TimelineMain: React.FC = () => {
-    const lineRef = useRef<HTMLDivElement>(null);
-    const isLineInView = useInView(lineRef);
-
-    useEffect(() => {
-        console.log(isLineInView);
-    }, [isLineInView]);
-    
+    const firstRowRef = useRef<HTMLDivElement>(null);
+    const penultimateRowRef = useRef<HTMLDivElement>(null);
+    const [lineHeight, setLineHeight] = useState<number | null>(null);
 
     return (
         <>
             <div className="col-span-1 mt-10 md:mt-20">
                 <h1 className="font-bold text-2xl lg:text-4xl md:text-3xl pl-5 pr-5">Experience</h1>
             </div>
-            <div className="flex items-center justify-center flex-col sm:space-y-4 mt-10 md:mt-20 ml-5 mr-5 space-y-0">
+            <div className="grid grid-cols-1 flex items-center justify-center flex-col sm:space-y-4 mt-10 md:mt-20 ml-5 mr-5 space-y-0">
+                {/* Vertical line */}
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-full z-0"></div>
                 {timeLineData.map((item, index) => (
+                    
                     <React.Fragment key={index}>
                         <TimelineItem
                         key={index}

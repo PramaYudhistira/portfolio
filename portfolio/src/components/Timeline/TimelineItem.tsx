@@ -25,10 +25,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     return (
         <motion.div
         ref={ref}
-        initial={{ opacity: 0, y: 0}}//why is y: 50 
+        initial={{ opacity: 0}}//why is y: 50 
         animate={{ opacity: isInView ? 1 : 0}}
         transition={{ duration: 0.5, delay: index * 0.2 }}
-        className="p-4 bg-gray-900 rounded-lg shadow-lg max-w-md "
+        className="p-4 bg-gray-900 rounded-lg shadow-lg max-w-md z-10"
         >
             <div className="flex items-center">
                 <div className="w-12  h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
