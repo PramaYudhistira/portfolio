@@ -34,6 +34,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ nameRef }) => {
         () => ({
           fullScreen: {
             enable: false,
+            zIndex: 0,
           },
           background: {
             color: {
@@ -110,6 +111,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ nameRef }) => {
             id="tsparticles"
             particlesLoaded={particlesLoaded}
             options={options}
+            className="absolute inset-0 h-full w-full"
             />
 
             <div className="absolute inset-0 flex flex-col md:items-center justify-center z-10">
