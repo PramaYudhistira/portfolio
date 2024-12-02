@@ -24,8 +24,8 @@ const HomeSection: React.FC<HomeSectionProps> = ({ nameRef }) => {
         <div className="relative h-[70vh] overflow-hidden relative z-0">
             <video
             autoPlay
-            loop
             muted
+            loop
             playsInline
             className="w-full h-full object-cover"
             style={{
