@@ -39,31 +39,41 @@ const TimelineMain: React.FC = () => {
 
     return (
         <>
-            <div className="col-span-1 mt-10 md:mt-20">
-                <h1 className="font-bold text-2xl lg:text-4xl md:text-3xl pl-5 pr-5">Experience</h1>
-            </div>
-            <div className="grid grid-cols-1 flex items-center justify-center flex-col sm:space-y-4 mt-10 md:mt-20 ml-5 mr-5 space-y-0">
-                {/* Vertical line */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-full z-0"></div>
-                {timeLineData.map((item, index) => (
-                    
-                    <React.Fragment key={index}>
-                        <TimelineItem
-                        key={index}
-                        title={item.title}
-                        company={item.company}
-                        description={item.description}
-                        dateRange={item.dateRange}
-                        index={index}
-                        logoSrc={item.logoSrc}
-                        />
-                        {index < timeLineData.length - 1 && (
-                            <TimelineLinesMobile />
-                        )}
-                    </React.Fragment>
-                ))}
-            </div>
-        </>
+        <div className="col-span-1 mt-10 md:mt-20">
+          <h1 className="font-bold text-2xl lg:text-4xl md:text-3xl pl-5 pr-5">Experience</h1>
+        </div>
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 sm:gap-10 mt-10 sm:mt-20 ml-5 mr-5">
+          {/* Vertical line */}
+          <div className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 z-0 opacity-30" style={{ height: '100%' }}></div>
+          {timeLineData.map((item, index) => (
+            <React.Fragment key={index}>
+              {index % 2 === 0 && <div className="hidden sm:block col-span-1"></div>}
+              <div
+                ref={
+                  index === 0
+                    ? firstRowRef
+                    : index === timeLineData.length - 2
+                    ? penultimateRowRef
+                    : null
+                }
+                className={`col-span-2 sm:col-span-1 ${index % 2 === 1 ? "sm:justify-self-end sm:mr-10" : "sm:justify-self-start sm:ml-10"}`}
+              >
+                <TimelineItem
+                  key={index}
+                  title={item.title}
+                  company={item.company}
+                  description={item.description}
+                  dateRange={item.dateRange}
+                  index={index}
+                  logoSrc={item.logoSrc}
+                />
+              </div>
+              {index % 2 !== 0 && <div className="hidden sm:block col-span-1"></div>}
+              {index < timeLineData.length - 1 && <TimelineLinesMobile />}
+            </React.Fragment>
+          ))}
+        </div>
+      </>
     );
 }
 
