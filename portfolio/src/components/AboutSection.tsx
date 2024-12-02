@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { motion, useInView } from "framer-motion";
 import OrganizationsCard from "./OrganizationsCard";
-import OrganizationsCardAlt from "./OrganizationsCardAlt";
 
 
 interface AboutSectionProps {

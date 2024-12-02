@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import TimelineItem from "./TimelineItem";
-import { motion, useInView, useAnimation } from "framer-motion";
+
 import TimelineLinesMobile from "./TimelineLinesMobile";
 
 
@@ -43,7 +43,7 @@ const TimelineMain: React.FC = () => {
             const lastRowMidpoint = lastRowRef.current.getBoundingClientRect().top + lastRowRef.current.getBoundingClientRect().height / 2;
             setLineHeight(lastRowMidpoint - firstRowMidpoint);
         }
-    })
+    }, [])
 
     return (
         <>

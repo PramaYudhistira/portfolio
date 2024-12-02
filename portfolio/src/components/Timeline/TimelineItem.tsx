@@ -1,5 +1,5 @@
-import { motion, useInView, useAnimation } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 interface TimelineItemProps {
     title: string;
