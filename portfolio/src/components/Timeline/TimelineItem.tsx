@@ -27,7 +27,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
             {index % 2 === 0 && (
                 <>
 
-                <motion.div className="hidden sm:block absolute right-full top-1/2 transform -translate-y-1/2 w-[59px] h-0.5 bg-gray-300 z-0 opacity-30"
+                <motion.div className="hidden sm:block absolute right-full top-1/2 transform w-[59px] h-0.5 bg-gray-300 z-0 opacity-30"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isInView ? 0.3: 0 }}>
 

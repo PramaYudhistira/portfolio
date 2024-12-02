@@ -34,8 +34,16 @@ const timeLineData = [
 
 const TimelineMain: React.FC = () => {
     const firstRowRef = useRef<HTMLDivElement>(null);
-    const penultimateRowRef = useRef<HTMLDivElement>(null);
+    const lastRowRef = useRef<HTMLDivElement>(null);
     const [lineHeight, setLineHeight] = useState<number | null>(null);
+
+    useEffect(() => {
+        if (firstRowRef.current && lastRowRef.current) {
+            const firstRowMidpoint = firstRowRef.current.getBoundingClientRect().top + firstRowRef.current.getBoundingClientRect().height / 2;
+            const lastRowMidpoint = lastRowRef.current.getBoundingClientRect().top + lastRowRef.current.getBoundingClientRect().height / 2;
+            setLineHeight(lastRowMidpoint - firstRowMidpoint);
+        }
+    })
 
     return (
         <>
@@ -44,7 +52,9 @@ const TimelineMain: React.FC = () => {
         </div>
         <div className="relative grid grid-cols-1 sm:grid-cols-2 sm:gap-10 mt-10 sm:mt-20 ml-5 mr-5">
           {/* Vertical line */}
-          <div className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 z-0 opacity-30" style={{ height: '100%' }}></div>
+          {/**we will deploy this and see if it looks good but here is original vertical line: */}
+          {/* <div className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 z-0 opacity-30" style={{ height: '100%' }}></div> */}
+          <div className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 z-0 opacity-30" style={{ height: `${lineHeight}px`, top: `calc(50% - ${lineHeight! / 2}px)` }}></div>
           {timeLineData.map((item, index) => (
             <React.Fragment key={index}>
               {index % 2 === 0 && <div className="hidden sm:block col-span-1"></div>}
@@ -52,8 +62,8 @@ const TimelineMain: React.FC = () => {
                 ref={
                   index === 0
                     ? firstRowRef
-                    : index === timeLineData.length - 2
-                    ? penultimateRowRef
+                    : index === timeLineData.length - 1
+                    ? lastRowRef
                     : null
                 }
                 className={`col-span-2 sm:col-span-1 ${index % 2 === 1 ? "sm:justify-self-end sm:mr-10" : "sm:justify-self-start sm:ml-10"}`}
