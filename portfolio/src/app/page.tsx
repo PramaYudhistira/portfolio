@@ -8,9 +8,6 @@ export default function Home() {
   return (
     <div id="main-page">
       <HomeAboutWrapper />
-      <div style={{
-        height: "200vh",
-      }}></div>
     </div>
   );
 };
