@@ -19,14 +19,14 @@ const Navbar: React.FC = () => {
     };
 
     //when component mounts, set distanceFromTop variable from null to actual
-    // useEffect(() => {
-    //     //set the distanceFromTop variable 
-    //     if (navbarRef.current) {
-    //         const rect = navbarRef.current.getBoundingClientRect();
-    //         setDistanceFromTop(rect.top + window.scrollY);
-    //     }
+    useEffect(() => {
+        //set the distanceFromTop variable 
+        if (navbarRef.current) {
+            const rect = navbarRef.current.getBoundingClientRect();
+            setDistanceFromTop(rect.top + window.scrollY);
+        }
 
-    // }, []);
+    }, []);
 
     //when screen resolution changes, update distanceFromTop
     const updateDistanceFromTop = () => {
@@ -48,11 +48,6 @@ const Navbar: React.FC = () => {
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", updateDistanceFromTop);
-        // setIsSticky(window.scrollY >= distanceFromTop!);
-        if (navbarRef.current) {
-            const rect = navbarRef.current.getBoundingClientRect();
-            setDistanceFromTop(rect.top + window.scrollY);
-        }
         return () => {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("resize", updateDistanceFromTop);
