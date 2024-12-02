@@ -2,6 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
+
+//TODO: I have too much OCD... when you refresh, and you refresh when you are below the sticky point, of course the flipping navbar 
+//     is not fricking under there until you scroll. 
+//     naturally you fix this by setting isSticky at the useEffect with the dependency of distanceFromTop, but then you get this flicker where its at the top fiurst,
+//     and then it gets to the original place in the dom tree... so like sticky, then not sticky (Refer to line 51)
 const Navbar: React.FC = () => {
     const [isSticky, setIsSticky] = useState(false);
     const navbarRef = useRef<HTMLDivElement>(null);
@@ -14,14 +19,14 @@ const Navbar: React.FC = () => {
     };
 
     //when component mounts, set distanceFromTop variable from null to actual
-    useEffect(() => {
-        //set the distanceFromTop variable 
-        if (navbarRef.current) {
-            const rect = navbarRef.current.getBoundingClientRect();
-            setDistanceFromTop(rect.top + window.scrollY);
-        }
+    // useEffect(() => {
+    //     //set the distanceFromTop variable 
+    //     if (navbarRef.current) {
+    //         const rect = navbarRef.current.getBoundingClientRect();
+    //         setDistanceFromTop(rect.top + window.scrollY);
+    //     }
 
-    }, []);
+    // }, []);
 
     //when screen resolution changes, update distanceFromTop
     const updateDistanceFromTop = () => {
@@ -43,6 +48,11 @@ const Navbar: React.FC = () => {
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", updateDistanceFromTop);
+        // setIsSticky(window.scrollY >= distanceFromTop!);
+        if (navbarRef.current) {
+            const rect = navbarRef.current.getBoundingClientRect();
+            setDistanceFromTop(rect.top + window.scrollY);
+        }
         return () => {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("resize", updateDistanceFromTop);
