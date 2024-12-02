@@ -14,16 +14,6 @@ const Navbar: React.FC = () => {
         setIsSticky(window.scrollY >= distanceFromTop!);
     };
 
-    //when component mounts, set distanceFromTop variable from null to actual
-    // useEffect(() => {
-    //     //set the distanceFromTop variable 
-    //     if (navbarRef.current) {
-    //         const rect = navbarRef.current.getBoundingClientRect();
-    //         setDistanceFromTop(rect.top + window.scrollY);
-    //     }
-
-    // }, []);
-
     //when screen resolution changes, update distanceFromTop
     const updateDistanceFromTop = () => {
         if (navbarRef.current) {

@@ -32,7 +32,12 @@ const timeLineData = [
 ]
 
 
-const TimelineMain: React.FC = () => {
+interface TimelineMainProps {
+  experienceRef: React.RefObject<HTMLDivElement>;
+}
+
+
+const TimelineMain: React.FC<TimelineMainProps> = ( { experienceRef }) => {
     const firstRowRef = useRef<HTMLDivElement>(null);
     const lastRowRef = useRef<HTMLDivElement>(null);
     const [lineHeight, setLineHeight] = useState<number | null>(null);
@@ -47,7 +52,8 @@ const TimelineMain: React.FC = () => {
 
     return (
         <>
-        <div className="col-span-1 mt-10 md:mt-20">
+        <div className="col-span-1 mt-10 md:mt-20"
+        ref={ experienceRef }>
           <h1 className="font-bold text-2xl lg:text-4xl md:text-3xl pl-5 pr-5">Experience</h1>
         </div>
         <div className="relative grid grid-cols-1 sm:grid-cols-2 sm:gap-10 mt-10 sm:mt-20 ml-5 mr-5">

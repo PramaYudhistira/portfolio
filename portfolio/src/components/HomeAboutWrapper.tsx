@@ -9,6 +9,7 @@ import TimelineMain from "./Timeline/TimelineMain";
 
 const HomeAboutWrapper: React.FC = () => {
     const nameRef = useRef<HTMLDivElement>(null);
+    const experienceRef = useRef<HTMLDivElement>(null); 
 
     //TODO: perhaps instead of using the reference, use the boolean value 
     //      could fix the problem of rendering automatically then fading out
@@ -17,7 +18,7 @@ const HomeAboutWrapper: React.FC = () => {
         <HomeSection nameRef={nameRef}/>
         <Navbar />
         <AboutSection nameRef={nameRef}/>
-        <TimelineMain />
+        <TimelineMain experienceRef={experienceRef}/>
         </>
     );
 };

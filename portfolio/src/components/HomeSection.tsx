@@ -44,10 +44,10 @@ const HomeSection: React.FC<HomeSectionProps> = ({ nameRef }) => {
           fpsLimit: 120,
           interactivity: {
             events: {
-              onClick: {
-                enable: true,
-                mode: "push",
-              },
+            //   onClick: {
+            //     enable: true,
+            //     mode: "push",
+            //   },
               onHover: {
                 enable: true,
                 mode: "repulse",
@@ -81,7 +81,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ nameRef }) => {
                 default: OutMode.out,
               },
               random: false,
-              speed: 3,
+              speed: 5,
               straight: false,
             },
             number: {
