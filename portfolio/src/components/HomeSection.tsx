@@ -126,9 +126,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ nameRef }) => {
                         <a href="https://linkedin.com/in/pramayudhistira" target="_blank" rel="noopener noreferrer">
                             <FaLinkedin className="text-3xl lg:text-5xl"/>
                         </a>
-                        <a href="https://linkedin.com/in/pramayudhistira" target="_blank" rel="noopener noreferrer">
+                        {/* <a href="https://linkedin.com/in/pramayudhistira" target="_blank" rel="noopener noreferrer">
                             <FaInstagram className="text-3xl lg:text-5xl"/>
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>
