@@ -98,9 +98,9 @@ const Navbar: React.FC = () => {
             ease-in-out text-sm md:text-base lg:text-xl hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
             rounded-full px-2 py-2 border border-transparent">Experience</a>
 
-            <a href="#" className="hover:bg-slate-800 transition font-bold
+            {/* <a href="#" className="hover:bg-slate-800 transition font-bold
             ease-in-out text-sm md:text-base lg:text-xl hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
-            rounded-full px-2 py-2 border border-transparent">Projects</a>         
+            rounded-full px-2 py-2 border border-transparent">Projects</a>          */}
         </nav>
         </div>
         {/**placeholder element: */}
