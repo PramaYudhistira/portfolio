@@ -1,20 +1,37 @@
 "use client";
 
+import { nav } from "framer-motion/client";
 import React, { useEffect, useRef, useState } from "react";
 
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+    experienceRef: React.RefObject<HTMLDivElement>;
+}
+
+
+const Navbar: React.FC<NavbarProps> = ( {experienceRef} ) => {
     const [isSticky, setIsSticky] = useState(false);
     const navbarRef = useRef<HTMLDivElement>(null);
     //track distance from top of viewport
     const [distanceFromTop, setDistanceFromTop] = useState<number | null>(null);
     const placeholderRef = useRef<HTMLDivElement>(null);
     
+    const [distanceExperienceFromTop, setDistanceExperienceFromTop] = useState<number | null>(null);
+
+
+    const updateDistanceExperienceFromTop = () => {
+        if (experienceRef.current) {
+            const rect = experienceRef.current.getBoundingClientRect();
+            setDistanceExperienceFromTop(rect.top + window.scrollY - navbarRef.current!.offsetHeight);
+        }
+    }
+
+    
     const handleScroll = () => {
         setIsSticky(window.scrollY >= distanceFromTop!);
     };
 
-    //when screen resolution changes, update distanceFromTop
+
     const updateDistanceFromTop = () => {
         if (navbarRef.current) {
             const rect = navbarRef.current.getBoundingClientRect();
@@ -34,7 +51,7 @@ const Navbar: React.FC = () => {
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", updateDistanceFromTop);
-        //setIsSticky(window.scrollY >= distanceFromTop!);
+        window.addEventListener("resize", updateDistanceExperienceFromTop);
         if (navbarRef.current) {
             const rect = navbarRef.current.getBoundingClientRect();
             if (!placeholderRef.current) {
@@ -44,6 +61,10 @@ const Navbar: React.FC = () => {
                 setDistanceFromTop(placeholderRef.current.getBoundingClientRect().top + window.scrollY);
                 setIsSticky(window.scrollY >= placeholderRef.current.getBoundingClientRect().top + window.scrollY);
             }
+        }
+        if (experienceRef.current) {
+            const rect = experienceRef.current.getBoundingClientRect();
+            setDistanceExperienceFromTop(rect.top + window.scrollY - navbarRef.current!.offsetHeight);
         }
 
         return () => {
@@ -84,7 +105,13 @@ const Navbar: React.FC = () => {
             ease-in-out text-sm md:text-base lg:text-xl hover:-translate-y-1 hover:translate-y-1 hover:scale-105
             rounded-full px-2 py-2 border border-transparent">About</a>
 
-            <a href="#" className="hover:bg-slate-800 transition font-bold
+            <a href="#" onClick={(e) => {
+                e.preventDefault();
+                console.log("test")
+                if (distanceExperienceFromTop !== null) {
+                    window.scrollTo({top: distanceExperienceFromTop, behavior: "smooth"});
+                }
+            }} className="hover:bg-slate-800 transition font-bold
             ease-in-out text-sm md:text-base lg:text-xl hover:-translate-y-1 hover:translate-y-1 hover:scale-105 
             rounded-full px-2 py-2 border border-transparent">Experience</a>
 

@@ -16,7 +16,7 @@ const HomeAboutWrapper: React.FC = () => {
     return (
         <>
         <HomeSection nameRef={nameRef}/>
-        <Navbar />
+        <Navbar experienceRef={experienceRef} />
         <AboutSection nameRef={nameRef}/>
         <TimelineMain experienceRef={experienceRef}/>
         </>
