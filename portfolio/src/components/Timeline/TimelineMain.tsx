@@ -42,12 +42,20 @@ const TimelineMain: React.FC<TimelineMainProps> = ( { experienceRef }) => {
     const lastRowRef = useRef<HTMLDivElement>(null);
     const [lineHeight, setLineHeight] = useState<number | null>(null);
 
+    const updateLineHeight = () => {
+      if (firstRowRef.current && lastRowRef.current) {
+          const firstRowMidpoint = firstRowRef.current.getBoundingClientRect().top + firstRowRef.current.getBoundingClientRect().height / 2;
+          const lastRowMidpoint = lastRowRef.current.getBoundingClientRect().top + lastRowRef.current.getBoundingClientRect().height / 2;
+          setLineHeight(lastRowMidpoint - firstRowMidpoint);
+      }
+    }
+
     useEffect(() => {
-        if (firstRowRef.current && lastRowRef.current) {
-            const firstRowMidpoint = firstRowRef.current.getBoundingClientRect().top + firstRowRef.current.getBoundingClientRect().height / 2;
-            const lastRowMidpoint = lastRowRef.current.getBoundingClientRect().top + lastRowRef.current.getBoundingClientRect().height / 2;
-            setLineHeight(lastRowMidpoint - firstRowMidpoint);
-        }
+      updateLineHeight();
+      window.addEventListener("resize", updateLineHeight);
+      return () => {
+        window.removeEventListener("resize", updateLineHeight);
+      }
     }, [])
 
     return (

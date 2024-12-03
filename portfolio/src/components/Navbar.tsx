@@ -107,7 +107,6 @@ const Navbar: React.FC<NavbarProps> = ( {experienceRef} ) => {
 
             <a href="#" onClick={(e) => {
                 e.preventDefault();
-                console.log("test")
                 if (distanceExperienceFromTop !== null) {
                     window.scrollTo({top: distanceExperienceFromTop, behavior: "smooth"});
                 }
