@@ -15,8 +15,8 @@ const OrganizationsCardAlt: React.FC<OrganizationsCardAltProps> = ( { imageSrc, 
 
     return (
         <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow
-        hover:shaadow-xl hover:shadow-black/30">
-            <div className="h-96 w-72 sm:w-1/2">
+        hover:shadow-xl hover:shadow-black/30 w-1/2 md:w-1/4">
+            <div className="h-96 w-1/2 w-full">
                 <img className="h-full w-full object-cover transition-transform duration-500 
                 group-hover:scale-125" src={imageSrc}/>
 

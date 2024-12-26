@@ -7,6 +7,7 @@ interface TimelineItemProps {
     description: string;
     dateRange: string;
     index: number;
+    totalItems: number;
     logoSrc: string;
 }
 
@@ -17,17 +18,20 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     description,
     dateRange,
     index,
+    totalItems,
     logoSrc
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref);
+    const lineWidth = index === totalItems - 1 ? "60.678px" : "59px";
 
     return (
         <div className="relative">
             {index % 2 === 0 && (
                 <>
 
-                <motion.div className="hidden sm:block absolute right-full top-1/2 transform w-[59px] h-0.5 bg-gray-300 z-0 opacity-30"
+                <motion.div className="hidden sm:block absolute right-full top-1/2 transform  h-0.5 bg-gray-300 z-0 opacity-30"
+                style={{width: lineWidth}}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isInView ? 0.3: 0 }}>
 

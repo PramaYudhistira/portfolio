@@ -88,6 +88,7 @@ const TimelineMain: React.FC<TimelineMainProps> = ( { experienceRef }) => {
                   company={item.company}
                   description={item.description}
                   dateRange={item.dateRange}
+                  totalItems={timeLineData.length}
                   index={index}
                   logoSrc={item.logoSrc}
                 />

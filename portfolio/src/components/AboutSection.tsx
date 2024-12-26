@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
 import OrganizationsCard from "./OrganizationsCard";
+import OrganizationsCardAlt from "./OrganizationsCardAlt";
 
 
 interface AboutSectionProps {
@@ -11,14 +12,6 @@ interface AboutSectionProps {
 
 const AboutSection: React.FC<AboutSectionProps> = ( { nameRef } ) => {
     const isInView = useInView(nameRef);
-
-    // useEffect(() => {
-    //     if (isInView) {
-    //         console.log("I can see it!");
-    //     } else {
-    //         console.log("I can't see it!");
-    //     }
-    // }, [isInView]);
 
     return (
         <>
@@ -69,17 +62,17 @@ const AboutSection: React.FC<AboutSectionProps> = ( { nameRef } ) => {
                     description="Worked on a group to find a problem solving phone addiction in children"
                     bgColor="bg-white"
                 />
-                <OrganizationsCard
+                <OrganizationsCardAlt
                     imageSrc="OIT_logo.jpg"
                     title="OIT"
                     description="I worked as a tech support agent for wreck techs."
-                    bgColor="bg-oit"
+                    darkImage={true}
                 />
-                <OrganizationsCard
-                    imageSrc="vip_logo.jpg"
+                <OrganizationsCardAlt
+                    imageSrc="vip_logo.svg"
                     title="VIP"
                     description="Helped make a Game in Unity, and currently in the AI-Based discovery and innovation team"
-                    bgColor="bg-white"
+                    darkImage={true}
                 />
 
                 
