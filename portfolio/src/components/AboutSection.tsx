@@ -62,17 +62,17 @@ const AboutSection: React.FC<AboutSectionProps> = ( { nameRef } ) => {
                     description="Worked on a group to find a problem solving phone addiction in children"
                     bgColor="bg-white"
                 />
-                <OrganizationsCardAlt
+                <OrganizationsCard
                     imageSrc="OIT_logo.jpg"
                     title="OIT"
                     description="I worked as a tech support agent for wreck techs."
-                    darkImage={true}
+                    bgColor="bg-oit"
                 />
-                <OrganizationsCardAlt
-                    imageSrc="vip_logo.svg"
+                <OrganizationsCard
+                    imageSrc="vip_logo.jpg"
                     title="VIP"
                     description="Helped make a Game in Unity, and currently in the AI-Based discovery and innovation team"
-                    darkImage={true}
+                    bgColor="bg-white"
                 />
 
                 

@@ -24,8 +24,9 @@ const OrganizationsCardAlt: React.FC<OrganizationsCardAltProps> = ( { imageSrc, 
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black
             group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70">
             </div>
-            <div className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9
-            text-center transition-all duration-500 group-hover:translate-y-0">
+            <div className="absolute inset-0 flex translate-y-1/2 flex-col items-center justify-center px-9
+            text-center transition-all duration-500 group-hover:translate-y-0"
+            >
                 {/** make sure to have an option to have black or white text */}
                 <h1 className={`font-dmserif text-3xl font-bold ${darkImage ? 'text-white' : 'text-black'}`}>{title}</h1>
                 <p className={`mb-3 text-lg italic ${darkImage ? 'text-white' : 'text-black'} opacity-0 transition-opacity 
