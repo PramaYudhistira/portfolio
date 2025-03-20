@@ -13,6 +13,7 @@ import {
 import * as THREE from "three";
 import GLOBE from "vanta/dist/vanta.globe.min";
 import RINGS from "vanta/dist/vanta.rings.min";
+import { VantaEffect } from "vanta";
 
 interface HomeSectionProps {
     nameRef: React.RefObject<HTMLHeadingElement>;
@@ -20,14 +21,14 @@ interface HomeSectionProps {
 
 
 const HomeSection: React.FC<HomeSectionProps> = ({ nameRef }) => {
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  const [vantaEffect, setVantaEffect] = useState<VantaEffect | null>(null);
   const vantaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!vantaEffect && typeof window !== "undefined") {
       setVantaEffect(
         GLOBE({
-          el: vantaRef.current,
+          el: vantaRef.current!,
           THREE: THREE,
           mouseControls: true,
           touchControls: false,
